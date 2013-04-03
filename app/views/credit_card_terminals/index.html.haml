@@ -1,0 +1,27 @@
+%h1 Listing credit_card_terminals
+
+%table
+  %tr
+    %th Name
+    %th Account
+    %th User
+    %th Pin
+    %th Demo
+    %th
+    %th
+    %th
+
+  - @credit_card_terminals.each do |credit_card_terminal|
+    %tr
+      %td= credit_card_terminal.name
+      %td= credit_card_terminal.account_id
+      %td= credit_card_terminal.user_id
+      %td= credit_card_terminal.pin
+      %td= credit_card_terminal.demo
+      %td= link_to 'Show', credit_card_terminal
+      %td= link_to 'Edit', edit_credit_card_terminal_path(credit_card_terminal)
+      %td= link_to 'Destroy', credit_card_terminal, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Credit card terminal', new_credit_card_terminal_path

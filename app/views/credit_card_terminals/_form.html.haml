@@ -1,0 +1,25 @@
+= form_for @credit_card_terminal do |f|
+  - if @credit_card_terminal.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@credit_card_terminal.errors.count, "error")} prohibited this credit_card_terminal from being saved:"
+      %ul
+        - @credit_card_terminal.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :account_id
+    = f.text_field :account_id
+  .field
+    = f.label :user_id
+    = f.text_field :user_id
+  .field
+    = f.label :pin
+    = f.text_field :pin
+  .field
+    = f.label :demo
+    = f.check_box :demo
+  .actions
+    = f.submit 'Save'

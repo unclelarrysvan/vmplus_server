@@ -1,0 +1,41 @@
+%h1 Listing credit_transactions
+
+%table
+  %tr
+    %th Card number
+    %th Name on card
+    %th Amount
+    %th Cvv2 response
+    %th Card exp
+    %th Approved
+    %th Error code
+    %th Status
+    %th Transaction
+    %th Transaction time
+    %th Approval code
+    %th Credit card terminal
+    %th
+    %th
+    %th
+
+  - @credit_transactions.each do |credit_transaction|
+    %tr
+      %td= credit_transaction.card_number
+      %td= credit_transaction.name_on_card
+      %td= credit_transaction.amount
+      %td= credit_transaction.cvv2_response
+      %td= credit_transaction.card_exp
+      %td= credit_transaction.approved
+      %td= credit_transaction.error_code
+      %td= credit_transaction.status
+      %td= credit_transaction.transaction_id
+      %td= credit_transaction.transaction_time
+      %td= credit_transaction.approval_code
+      %td= credit_transaction.credit_card_terminal_id
+      %td= link_to 'Show', credit_transaction
+      %td= link_to 'Edit', edit_credit_transaction_path(credit_transaction)
+      %td= link_to 'Destroy', credit_transaction, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Credit transaction', new_credit_transaction_path

@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @credit_card_terminal.name
+%p
+  %b Account:
+  = @credit_card_terminal.account_id
+%p
+  %b User:
+  = @credit_card_terminal.user_id
+%p
+  %b Pin:
+  = @credit_card_terminal.pin
+%p
+  %b Demo:
+  = @credit_card_terminal.demo
+
+= link_to 'Edit', edit_credit_card_terminal_path(@credit_card_terminal)
+\|
+= link_to 'Back', credit_card_terminals_path
