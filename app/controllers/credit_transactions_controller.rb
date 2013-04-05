@@ -11,9 +11,9 @@ class CreditTransactionsController < ApplicationController
   end
 
   def charge_card
-    terminal = create_terminal(params[:account_data])
+    terminal = create_terminal(params[:data][:account_data])
     return false if !terminal
-    result = terminal.charge_card(params[:card_data], params[:amount], params[:tax])
+    result = terminal.charge_card(params[:data][:card_data], params[:data][:amount], params[:data][:tax])
     result.merge!("credit_card_terminal_id" => terminal.id)
     @transaction = CreditTransaction.create(result)
     respond_with(@transaction) do |format|

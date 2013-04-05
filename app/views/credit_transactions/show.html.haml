@@ -1,42 +1,42 @@
 %p#notice= notice
 
-%p
-  %b Card number:
-  = @credit_transaction.card_number
-%p
-  %b Name on card:
-  = @credit_transaction.name_on_card
-%p
-  %b Amount:
-  = @credit_transaction.amount
-%p
-  %b Cvv2 response:
-  = @credit_transaction.cvv2_response
-%p
-  %b Card exp:
-  = @credit_transaction.card_exp
-%p
-  %b Approved:
-  = @credit_transaction.approved
-%p
-  %b Error code:
-  = @credit_transaction.error_code
-%p
-  %b Status:
-  = @credit_transaction.status
-%p
-  %b Transaction:
-  = @credit_transaction.transaction_id
-%p
-  %b Transaction time:
-  = @credit_transaction.transaction_time
-%p
-  %b Approval code:
-  = @credit_transaction.approval_code
-%p
-  %b Credit card terminal:
-  = @credit_transaction.credit_card_terminal_id
+/%p
+/  %b Card number:
+/  = @credit_transaction.card_number
+/%p
+/  %b Name on card:
+/  = @credit_transaction.name_on_card
+/%p
+/  %b Amount:
+/  = @credit_transaction.amount
+/%p
+/  %b Cvv2 response:
+/  = @credit_transaction.cvv2_response
+/%p
+/  %b Card exp:
+/  = @credit_transaction.card_exp
+/%p
+/  %b Approved:
+/  = @credit_transaction.approved
+/%p
+/  %b Error code:
+/  = @credit_transaction.error_code
+/%p
+/  %b Status:
+/  = @credit_transaction.status
+/%p
+/  %b Transaction:
+/  = @credit_transaction.transaction_id
+/%p
+/  %b Transaction time:
+/  = @credit_transaction.transaction_time
+/%p
+/  %b Approval code:
+/  = @credit_transaction.approval_code
+/%p
+/  %b Credit card terminal:
+/  = @credit_transaction.credit_card_terminal_id
 
-= link_to 'Edit', edit_credit_transaction_path(@credit_transaction)
-\|
-= link_to 'Back', credit_transactions_path
+/= link_to 'Edit', edit_credit_transaction_path(@credit_transaction)
+/\|
+/= link_to 'Back', credit_transactions_path
