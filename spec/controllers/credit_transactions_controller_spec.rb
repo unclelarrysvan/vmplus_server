@@ -15,9 +15,15 @@ describe CreditTransactionsController do
 
   manual_card_data = {
     name_on_card: "Skinny Dave",
-    number: "50003000200030003",
-    expiration: "0514",
-    security_code: 1234}
+    number: "4017410278228162",
+    expiration: "0213",
+    security_code: "144"}
+
+  account_data = {
+    account_id: '002602',
+    user_id: '002602',
+    pin: '1YURP7',
+    demo: true}
 
   describe "GET index" do
     it "assigns all credit_transactions as @credit_transactions" do
@@ -28,18 +34,17 @@ describe CreditTransactionsController do
   end
 
   describe "charge_card" do
-    it "gets terminal" do
-      terminal = create :credit_card_terminal
-      find = CreditCardTerminal.find(terminal)
-      find.should eq terminal
-    end
+    #it "gets terminal" do
+    #  terminal = create :credit_card_terminal
+    #  find = CreditCardTerminal.find(terminal)
+    #  find.should eq terminal
+    #end
 
     it "charges card" do
-      terminal = create :credit_card_terminal
-      params = {card_data: manual_card_data, terminal_id: terminal.id, amount: 1}
+      params = {card_data: manual_card_data, amount: 0.01, account_data: account_data}
       params.merge!(format: :json)
       post :charge_card, params
-      CreditTransaction.last.card_number.should eq "5000300020003003"
+      CreditTransaction.last.card_number.should eq "40**********8162"
     end
   end
 

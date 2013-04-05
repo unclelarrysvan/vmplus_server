@@ -38,12 +38,12 @@ class CreditCardTerminal < ActiveRecord::Base
       status: vm_response.result_message,
       transaction_id: vm_response.transaction_id,
       transaction_time: vm_response.transaction_time,
-      cvv2_response: vmresponse.cvv2_response}
+      cvv2_response: vm_response.cvv2_response}
   end
 
   def error_response(vm_response)
     {approved: false,
       error_code: vm_response.error,
-      status: vm_tesponse.result_message}
+      status: vm_response.result_message}
   end
 end

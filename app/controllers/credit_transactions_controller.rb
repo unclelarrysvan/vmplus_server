@@ -11,8 +11,7 @@ class CreditTransactionsController < ApplicationController
   end
 
   def charge_card
-    terminal = create_terminal(params[:account_id], params[:user_id], params[:pin])
-    terminal = get_terminal(terminal)
+    terminal = create_terminal(params[:account_data])
     return false if !terminal
     result = terminal.charge_card(params[:card_data], params[:amount], params[:tax])
     result.merge!("credit_card_terminal_id" => terminal.id)
@@ -23,20 +22,13 @@ class CreditTransactionsController < ApplicationController
   end
 
   private
-  def get_terminal(terminal_id)
-    begin
-      terminal = CreditCardTerminal.find(terminal_id)
-    rescue ActiveRecord::RecordNotFound
-      render json: {result: "Credit Card Terminal Not Found."}
-      return false
-    end
-  end
 
-  def create_terminal(account_id, user_id, pin)
+  def create_terminal(data)
     terminal = CreditCardTerminal.new()
-    terminal.account_id = account_id
-    terminal.user_id = user_id
-    terminal.pin = pin
+    terminal.account_id = data[:account_id]
+    terminal.user_id = data[:user_id]
+    terminal.pin = data[:pin]
+    terminal.demo = data[:demo]
     terminal
   end
 end

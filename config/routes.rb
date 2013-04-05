@@ -4,6 +4,7 @@ VmplusServer::Application.routes.draw do
 
   resources :credit_transactions
 
+  get "credit_transactions/charge_card"
 
 
 end
