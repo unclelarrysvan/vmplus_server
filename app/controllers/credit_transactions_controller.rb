@@ -1,14 +1,14 @@
 class CreditTransactionsController < ApplicationController
   respond_to :json
 
-  def index #DELETE THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    @credit_transactions = CreditTransaction.all
+  #def index #DELETE THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  #  @credit_transactions = CreditTransaction.all
 
-    respond_to do |format|
-      format.html
-      format.json { render json: @credit_transactions }
-    end
-  end
+  #  respond_to do |format|
+  #    format.html
+  #    format.json { render json: @credit_transactions }
+  #  end
+  #end
 
   def charge_card
     terminal = create_terminal(params[:data][:account_data])
