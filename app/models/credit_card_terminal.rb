@@ -5,6 +5,11 @@ class CreditCardTerminal < ActiveRecord::Base
     vm_credentials = VirtualMerchant::Credentials.new(credentials)
     vm_card = VirtualMerchant::CreditCard.new(card_data)
     vm_amount = VirtualMerchant::Amount.new(total: amount, tax: tax)
+    puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    puts vm_credentials
+    puts vm_card
+    puts vm_amount
+    puts "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
     response = generate_response(
       VirtualMerchant.charge(vm_card, vm_amount, vm_credentials), vm_card, amount)
   end
